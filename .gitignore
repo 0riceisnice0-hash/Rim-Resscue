@@ -1,0 +1,28 @@
+# Rim Rescue - Git Ignore File
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor Files
+.vscode/
+.idea/
+*.sublime-*
+*.swp
+*.swo
+*~
+
+# Temporary Files
+*.tmp
+*.log
+.cache/
+
+# Build artifacts (if any build system is added later)
+dist/
+build/
+node_modules/
+
+# Environment files
+.env
+.env.local
