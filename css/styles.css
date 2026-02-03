@@ -723,3 +723,223 @@ footer {
 .py-1 { padding-top: 1rem; padding-bottom: 1rem; }
 .py-2 { padding-top: 2rem; padding-bottom: 2rem; }
 .py-3 { padding-top: 3rem; padding-bottom: 3rem; }
+
+/* ==================== ENHANCED IMAGE STYLES ==================== */
+
+/* Before/After Image containers */
+.before-img,
+.after-img {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.before-img img,
+.after-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .before-img img,
+.gallery-item:hover .after-img img {
+    transform: scale(1.05);
+}
+
+.img-label {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 2px;
+}
+
+.before-img .img-label {
+    background: var(--primary-red);
+}
+
+.after-img .img-label {
+    background: #22c55e;
+}
+
+/* Showcase single image */
+.showcase-single {
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.showcase-single img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item.showcase-item:hover .showcase-single img {
+    transform: scale(1.05);
+}
+
+/* Gallery label always visible on touch devices */
+@media (hover: none) {
+    .gallery-label {
+        transform: translateY(0);
+    }
+}
+
+/* ==================== PRICING STYLES ==================== */
+
+.pricing-note {
+    background: linear-gradient(135deg, var(--secondary-black) 0%, #1f2937 100%);
+    color: var(--accent-white);
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--primary-red);
+}
+
+.pricing-note p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.pricing-note strong {
+    color: var(--primary-red);
+}
+
+.service-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.service-header h3 {
+    margin-bottom: 0;
+}
+
+.price-tag {
+    background: var(--primary-red);
+    color: var(--accent-white);
+    padding: 0.5rem 1rem;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.service-price {
+    color: var(--primary-red);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Service showcase grid */
+.service-showcase {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-grey);
+}
+
+.service-showcase h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--secondary-black);
+}
+
+.showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.showcase-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.showcase-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+    .showcase-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .service-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* ==================== ABOUT PAGE IMAGE ==================== */
+.about-image {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.about-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+/* ==================== HERO ENHANCEMENTS ==================== */
+.hero-home {
+    background: linear-gradient(135deg, rgba(17,17,17,0.95) 0%, rgba(31,41,55,0.9) 100%),
+                url('../images/real/hero-real.jpg') center/cover no-repeat;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-home .hero-content {
+    padding: 2rem;
+}
+
+/* CTA phone number styling */
+.phone-number a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.phone-number a:hover {
+    text-decoration: underline;
+}
+
+/* ==================== GALLERY LABEL IMPROVEMENTS ==================== */
+.gallery-item {
+    background: var(--secondary-black);
+}
+
+.before-after-container {
+    padding: 1rem;
+    background: var(--secondary-black);
+}
+
+.gallery-label {
+    position: relative;
+    transform: none;
+    background: var(--secondary-black);
+    padding: 1rem;
+    text-align: center;
+}
