@@ -666,8 +666,10 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    /* Keep before/after images side-by-side on mobile with 1:1 ratio */
     .before-after-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
     }
 
     section {
@@ -1084,9 +1086,17 @@ footer {
         gap: 0.75rem;
     }
     
+    /* 1:1 aspect ratio for before/after images on mobile */
+    .before-img,
+    .after-img {
+        aspect-ratio: 1 / 1;
+    }
+    
     .before-img img,
     .after-img img {
-        height: 160px;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
         border-radius: 6px;
     }
     
@@ -1222,9 +1232,16 @@ footer {
         padding: 2.5rem 1rem;
     }
     
+    /* Keep 1:1 aspect ratio on extra small screens */
+    .before-img,
+    .after-img {
+        aspect-ratio: 1 / 1;
+    }
+    
     .before-img img,
     .after-img img {
-        height: 140px;
+        height: 100%;
+        width: 100%;
     }
     
     .phone-number {
