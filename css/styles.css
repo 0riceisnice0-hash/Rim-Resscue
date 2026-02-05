@@ -666,8 +666,10 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    /* Keep before/after images side-by-side on mobile with 1:1 ratio */
     .before-after-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
     }
 
     section {
@@ -1084,9 +1086,17 @@ footer {
         gap: 0.75rem;
     }
     
+    /* 1:1 aspect ratio for before/after images on mobile */
+    .before-img,
+    .after-img {
+        aspect-ratio: 1 / 1;
+    }
+    
     .before-img img,
     .after-img img {
-        height: 160px;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
         border-radius: 6px;
     }
     
@@ -1222,9 +1232,16 @@ footer {
         padding: 2.5rem 1rem;
     }
     
+    /* Keep 1:1 aspect ratio on extra small screens */
+    .before-img,
+    .after-img {
+        aspect-ratio: 1 / 1;
+    }
+    
     .before-img img,
     .after-img img {
-        height: 140px;
+        height: 100%;
+        width: 100%;
     }
     
     .phone-number {
@@ -1275,4 +1292,107 @@ footer {
     .gallery-item:active {
         transform: scale(0.99);
     }
+}
+
+/* ==================== CREATIVE ENHANCEMENTS ==================== */
+
+/* Subtle gradient overlay on gallery images for better text contrast */
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+    pointer-events: none;
+    border-radius: 0 0 8px 8px;
+    z-index: 1;
+}
+
+/* Improved image label styling */
+.img-label {
+    z-index: 2;
+    font-weight: 700;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Before label with red accent */
+.before-img .img-label {
+    background: linear-gradient(135deg, var(--primary-red) 0%, #dc2626 100%);
+}
+
+/* After label with green accent */
+.after-img .img-label {
+    background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
+}
+
+/* Service price tag enhancement */
+.service-price {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(185,28,28,0.1) 0%, rgba(185,28,28,0.05) 100%);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    border-left: 3px solid var(--primary-red);
+}
+
+/* Enhanced CTA section with subtle animation */
+.cta-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+    animation: pulse-bg 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes pulse-bg {
+    0%, 100% {
+        transform: translate(0, 0);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translate(-10%, -10%);
+        opacity: 0.5;
+    }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .cta-section::before {
+        animation: none;
+        opacity: 0.3;
+    }
+}
+
+/* Phone number hover effect */
+.phone-number a {
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.phone-number a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* Smooth loading for gallery images only */
+.gallery-item img,
+.showcase-grid img,
+.about-image img {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item img[loading="lazy"],
+.showcase-grid img[loading="lazy"],
+.about-image img[loading="lazy"] {
+    background: linear-gradient(135deg, #e5e7eb 0%, #f5f5f5 100%);
 }
